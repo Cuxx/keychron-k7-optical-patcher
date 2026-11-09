@@ -104,9 +104,10 @@ With `--mic-mute`, the Explorer shortcut (Win+E) is gone: its handler is reused 
 
 ## Usage
 
-1. Download the official K7 updater `K7-A2-68K-WHILE-US-OA-V1.05_20210611.exe` from Keychron. It must be
-   this exact file, for the optical, white-backlight K7. Check its SHA-256 (see above), for example with
-   `certutil -hashfile <file> SHA256`.
+1. Download the official K7 updater `K7-A2-68K-WHILE-US-OA-V1.05_20210611.exe` from Keychron's
+   [K7 firmware page](https://www.keychron.com/pages/firmware-for-k7-us-keyboard). It is listed there as
+   **K7 Optical Switch White Backlight Version V1.05**; take the **Windows** download. It must be this exact
+   file. Check its SHA-256 (see above), for example with `certutil -hashfile <file> SHA256`.
 2. Put the EXE next to `k7_patch.py`.
 3. Preview the changes:
    ```
@@ -135,8 +136,9 @@ python k7_patch.py --mic-mute --static-led --bright --snap-tap   # snap tap, WAS
 
 The SN32F26x bootloader (0x7800–0x7FFF) is **not** part of the firmware image, and the updater never
 writes to it. Running the **original** updater flashes the stock firmware back. If a build misbehaves,
-flash an earlier build or the original updater. A hardware recovery method (such as a reset button) has
-**not** been tested on the K7.
+flash an earlier build or the original updater. For a K7 that no longer types after a firmware update,
+Keychron publishes a [hardware recovery procedure](https://www.keychron.com/pages/special-instruction-for-firmware-update-k7).
+It has not been needed or tested with this patcher.
 
 ---
 
@@ -214,6 +216,7 @@ emulator. The emulator also checks that every LED number belongs to the intended
 
 ## Known limitations
 
+- Used and tested on **Windows over the USB cable** only. **Bluetooth mode has not been tested.**
 - The Windows layer only. Mac layers are untouched, and the Snap Tap toggle works only in Windows mode.
 - The Snap Tap state is not saved and is ON again after every plug-in.
 - With `--mic-mute`, Fn2 + 4 no longer opens Explorer. With `--snap-tap` it no longer types `4` either:
