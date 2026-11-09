@@ -1,0 +1,8 @@
+# Keychron's updater and firmware are not ours to redistribute - never commit them
+*.exe
+*.bin
+firmware/
+
+# Python
+__pycache__/
+*.pyc
